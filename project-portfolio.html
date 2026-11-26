@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>MD | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f7f4; --surface:#ffffff; --surface2:#eef2f0;
+  --ink:#17201d; --muted:#5b6b65; --line:#dde3df;
+  --accent:#0f766e; --accent-ink:#ffffff; --accent-soft:#e0f2ef;
+  --amber:#b45309; --amber-soft:#fef3c7;
+  --chip:#eef2f0;
+  --shadow:0 10px 30px rgba(23,32,29,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#101512; --surface:#171d1a; --surface2:#1e2622;
+    --ink:#e8edea; --muted:#9fb0a7; --line:#2a3530;
+    --accent:#2dd4bf; --accent-ink:#06201c; --accent-soft:#12332e;
+    --amber:#fbbf24; --amber-soft:#33270d;
+    --chip:#1e2622;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.6;font-size:16px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px 72px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;margin:0}
+h2{font-size:clamp(26px,4vw,34px);margin-bottom:8px}
+h3{font-size:21px}
+section{margin-top:56px}
+.sec-note{color:var(--muted);max-width:640px;margin:0 0 22px}
+
+/* Top nav */
+.topnav{display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center;padding:18px 0 14px;border-bottom:1px solid var(--line)}
+.topnav a{color:var(--ink);font-size:14.5px;font-weight:600}
+.topnav a:hover{color:var(--accent);text-decoration:none}
+.topnav .nav-name{font-family:Fraunces,Georgia,serif;font-size:18px;font-weight:700;margin-right:auto}
+
+/* Hero */
+.hero{padding:52px 0 8px}
+.hero .role{font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.hero h1{font-size:clamp(34px,6vw,54px);font-weight:700;margin:14px 0 16px;max-width:820px}
+.hero p.lede{font-size:clamp(17px,2.4vw,20px);color:var(--muted);max-width:680px;margin:0}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-block;border-radius:10px;padding:12px 20px;font-weight:600;font-size:15px;border:1px solid transparent}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{text-decoration:none;opacity:.92}
+.btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{text-decoration:none;border-color:var(--accent);color:var(--accent)}
+
+/* About */
+.about-copy p{margin:0;color:var(--muted);font-size:16.5px;max-width:720px}
+.about-copy p strong{color:var(--ink)}
+
+/* Skills */
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+.skill-tags span{font-family:"JetBrains Mono",monospace;font-size:13px;background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:6px 13px}
+
+/* Project cards */
+.projects{display:grid;grid-template-columns:1fr;gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--shadow)}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.tag{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:6px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.tag.amber{background:var(--amber-soft);color:var(--amber)}
+.card h3{margin:10px 0 8px;font-size:24px}
+.card p{margin:0 0 12px;color:var(--muted);font-size:15.5px;max-width:760px}
+.card p strong{color:var(--ink)}
+.card ul{margin:0 0 6px;padding-left:20px;color:var(--muted);font-size:15.5px;max-width:760px}
+.card li{margin-bottom:7px}
+.card li strong{color:var(--ink)}
+.card .links{margin-top:14px;font-size:14.5px;font-weight:600}
+
+/* Timeline */
+.timeline{border-left:2px solid var(--line);margin-left:6px;padding-left:24px;display:grid;gap:22px}
+.tl-item{position:relative}
+.tl-item::before{content:"";position:absolute;left:-31px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl-item .when{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--accent);font-weight:600}
+.tl-item h3{font-size:18px;margin:4px 0 0;font-family:Inter,system-ui,sans-serif;font-weight:600}
+
+/* Certifications */
+.certs{display:flex;flex-wrap:wrap;gap:10px}
+.cert{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-weight:600;font-size:15px;box-shadow:var(--shadow)}
+
+/* Contact */
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--shadow)}
+.contact p{color:var(--muted);margin:0 0 16px;max-width:620px}
+.contact .row{margin-bottom:8px;font-size:15.5px}
+.contact .row b{display:inline-block;min-width:92px;color:var(--ink)}
+footer{margin-top:56px;color:var(--muted);font-size:13.5px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="topnav" aria-label="Portfolio sections">
+    <span class="nav-name">MD</span>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="role">MD Jubaer &middot; Fredericton, New Brunswick</div>
+    <h1>Developer building distributed systems, API services, and AI security tools.</h1>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#projects">See the projects</a>
+      <a class="btn btn-ghost" href="https://github.com/mjubaerUNB3035/watchtower" target="_blank" rel="noopener">WatchTower on GitHub</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About</h2>
+    <div class="about-copy">
+      <p>Computer Science graduate from the <strong>University of New Brunswick</strong> (CGPA 3.8 out of 4.3). I build <strong>backend systems, API services, and AI driven tools</strong>, and I currently work as a <strong>developer at Bastion Alarms</strong> in Fredericton.</p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill-tags">
+      <span>Python</span><span>Java</span><span>SQL</span><span>JavaScript</span>
+      <span>FastAPI</span><span>REST APIs</span><span>Microservices</span><span>Distributed Systems</span>
+      <span>PostgreSQL</span><span>Docker</span>
+      <span>LangChain</span><span>LangGraph</span><span>RAG</span><span>Embeddings and Vector Search</span><span>Ollama (Local LLMs)</span>
+      <span>AWS</span><span>Git</span><span>CI/CD</span><span>Linux</span>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <p class="sec-note">Real projects, built and tested. WatchTower is complete and running. Zenith and Repo Repair Agent are in active development, and their pages say so.</p>
+
+    <div class="projects">
+      <!-- WatchTower -->
+      <article class="card">
+        <div class="card-top"><span class="tag">Built and running</span><span class="tag amber">Public on GitHub</span></div>
+        <h3>WatchTower: AI SOC Analyst Platform</h3>
+        <p>An all in one security platform that collects security events, raises alerts, judges them with AI, and tracks incidents, built as separate services that talk to each other through APIs.</p>
+        <ul>
+          <li><strong>Architecture:</strong> separate Python services (collector, ingest API, dashboard API, web dashboard) backed by PostgreSQL, all running in Docker</li>
+          <li><strong>Event pipeline:</strong> collectors gather security events and store them in the database through the ingest API</li>
+          <li><strong>Alert rules:</strong> a rules engine checks incoming events and raises alerts when patterns match</li>
+          <li><strong>AI triage:</strong> each alert is judged by a local AI model (Ollama, llama3.1:8b), which gives a verdict, a confidence score, and a reason</li>
+          <li><strong>Human review:</strong> a reviewer can accept or correct each verdict, and past corrections are fed back into future AI judgments, so the system learns from its mistakes</li>
+          <li><strong>Incidents:</strong> confirmed alerts become incidents that can be tracked to closure</li>
+          <li><strong>Scanner section:</strong> checks machines for open ports and risky services, stores every scan, and has the AI judge how risky each machine is</li>
+          <li><strong>Phishing section:</strong> watches a mailbox automatically, runs a set of detection checks on every new email (fake sender, dangerous links, hidden links, fake attachments, failed authentication, pressure wording, and more), then gives an AI verdict with reasons</li>
+          <li><strong>Testing:</strong> 34 automated tests covering the services</li>
+        </ul>
+        <div class="links"><a href="https://github.com/mjubaerUNB3035/watchtower" target="_blank" rel="noopener">View the code on GitHub &rarr;</a></div>
+      </article>
+
+      <!-- Zenith -->
+      <article class="card">
+        <div class="card-top"><span class="tag amber">In progress</span><span class="tag">Data &middot; Python</span></div>
+        <h3>Zenith: Stock Breakout Detection System</h3>
+        <p>A stock scanning system that marks stocks setting up for a breakout before the breakout happens, then watches whether the mark was right.</p>
+        <ul>
+          <li><strong>Marking rules:</strong> a stock is marked when its close sits within 5 percent below its prior 55 day high, with a 20 day range over 26 percent, 60 day momentum over 45 percent, RSI between 55 and 80, MACD rising and positive, and price above its 200 day average</li>
+          <li><strong>Buying volume rules:</strong> 10 day average volume at least equal to the prior 20 day average, plus at least 3 accumulation days in the last 20 days (an up day closing on at least 1.2 times the 50 day average volume)</li>
+          <li><strong>Forward testing:</strong> every mark is written to a ledger and measured at 40 and 60 days against a strict test: a real break must reach plus 30 percent before ever dipping minus 10 percent</li>
+          <li><strong>Results so far:</strong> 112 marks placed, 82 measured, 62 true breaks, 48 big runs, 36 clean runs</li>
+          <li><strong>Paper trading:</strong> a paper portfolio tracks the strategy on live market data, with the marker running on a weekday evening schedule</li>
+        </ul>
+      </article>
+
+      <!-- Repo Repair Agent -->
+      <article class="card">
+        <div class="card-top"><span class="tag amber">In progress</span><span class="tag">Public on GitHub</span></div>
+        <h3>Repo Repair Agent</h3>
+        <p>An autonomous agent that reads a real software bug report, finds the faulty code, writes a fix, and proves the fix by running the project's tests.</p>
+        <ul>
+          <li><strong>Framework:</strong> built with LangGraph as a single agent loop that decides one action at a time</li>
+          <li><strong>Dataset:</strong> real bug fixing tasks from the SWE-bench Lite dataset on Hugging Face (princeton-nlp/SWE-bench_Lite)</li>
+          <li><strong>Agent tools:</strong> code search, file reading, patch writing inside a Docker sandbox, and a test runner, so the agent never touches the real machine</li>
+          <li><strong>Retrieval (RAG):</strong> repository code is split into chunks, embedded with a local model (nomic-embed-text through Ollama), and retrieved by meaning using cosine similarity, so the agent reads only the relevant code instead of whole files</li>
+          <li><strong>Tracing:</strong> every action the agent takes is logged, so a full run can be replayed and checked step by step</li>
+          <li><strong>Pilot test:</strong> the agent is being measured on a fixed pilot of 20 tasks, with pass rules set in advance: at least 4 tasks resolved, zero regressions on tests that already passed, and full traces for every run</li>
+        </ul>
+        <div class="links"><a href="https://github.com/mjubaerUNB3035/Repo-Repair-Agent" target="_blank" rel="noopener">View the code on GitHub &rarr;</a></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="when">JUNE 2026 TO PRESENT</div>
+        <h3>Software Developer, Bastion Alarms, Fredericton, NB</h3>
+      </div>
+      <div class="tl-item">
+        <div class="when">AUGUST 2024 TO APRIL 2025</div>
+        <h3>Programmer Analyst (Co-op), Vestcor Inc., Fredericton, NB</h3>
+      </div>
+      <div class="tl-item">
+        <div class="when">JANUARY 2024 TO APRIL 2024</div>
+        <h3>Software Developer (Co-op), SpryPoint Inc., Charlottetown, PE</h3>
+      </div>
+      <div class="tl-item">
+        <div class="when">JANUARY 2023 TO APRIL 2023</div>
+        <h3>Data Engineer (Co-op), McCain Foods, Florenceville-Bristol, NB</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="certs">
+      <span class="cert">CompTIA Security+</span>
+      <span class="cert">CompTIA Network+</span>
+      <span class="cert">AWS Certified Solutions Architect Associate (SAA-C03)</span>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact">
+      <h2>Contact</h2>
+      <p>The fastest way to judge my work is to read it: the WatchTower and Repo Repair Agent repositories are public on GitHub.</p>
+      <div class="row"><b>Email</b> <a href="mailto:mjubaer@unb.ca">mjubaer@unb.ca</a></div>
+      <div class="row"><b>LinkedIn</b> <a href="http://www.linkedin.com/in/mdjubaer" target="_blank" rel="noopener">linkedin.com/in/mdjubaer</a></div>
+      <div class="row"><b>GitHub</b> <a href="https://github.com/mjubaerUNB3035" target="_blank" rel="noopener">github.com/mjubaerUNB3035</a></div>
+      <div class="row"><b>Portfolio</b> <a href="https://mjubaerUNB3035.github.io">mjubaerUNB3035.github.io</a></div>
+    </div>
+  </section>
+
+  <footer>Portfolio of MD Jubaer, Fredericton, NB. <a href="#about">About</a> &middot; <a href="#projects">Projects</a> &middot; <a href="#contact">Contact</a></footer>
+</div>
+</body>
+</html>
